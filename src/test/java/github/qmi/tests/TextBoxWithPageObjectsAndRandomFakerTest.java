@@ -5,6 +5,10 @@ import github.qmi.componentes.CalendarComponent;
 import github.qmi.page.Gender;
 import github.qmi.page.Hobbies;
 import github.qmi.page.RegistrationFormPage;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
@@ -12,12 +16,16 @@ import java.util.Locale;
 import static github.qmi.page.Gender.MALE;
 import static github.qmi.tests.TestData.*;
 
+@Owner("Tsareva")
+@Story("Student Registration Form")
 public class TextBoxWithPageObjectsAndRandomFakerTest extends TestBase {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     private final Faker faker = new Faker(new Locale("en"));
     public CalendarComponent calendar = new CalendarComponent();
 
     @Test
+    @DisplayName("Submit completed form")
+    @Tag("NORMAL")
     void TextBoxWithPageObjectsAndRandomFakerTest() {
         String firstName = faker.name().firstName(),
                 lastName = faker.name().lastName(),
